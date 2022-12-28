@@ -16,3 +16,10 @@ class Day1_test(unittest.TestCase):
         result = d.Sum([1000,2000,3000])
 
         self.assertEquals(result, 6000, "Should be 6000 calories")
+
+    def test_sum_of_two_numbwers(self):
+        d = CalorieCounter()
+
+        result = d.Sum([1000,2000])
+
+        self.assertEquals(result, 3000, "Should be 3000 calories")

@@ -4,5 +4,10 @@ class CalorieCounter:
         pass
 
     def Sum(self, numbers):
+    
+        l = len(numbers)
 
-        return numbers[0] + numbers[1] + numbers[2]
+        if l < 3:
+            return numbers[0] + numbers[1]
+
+        return numbers[0] + numbers[1] + numbers[2] 
