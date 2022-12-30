@@ -1,13 +1,42 @@
 
 class CalorieCounter:
+   
+    data = [] 
+
     def __init__(self) -> None:
         pass
 
     def Sum(self, numbers):
     
-        l = len(numbers)
+        sum = 0 
 
-        if l < 3:
-            return numbers[0] + numbers[1]
+        for x in numbers:
+            sum = sum + x
 
-        return numbers[0] + numbers[1] + numbers[2] 
+        return sum
+
+    def ReadData(self,filename):
+
+        f = open(filename, "r")
+        calories = []
+
+        for x in f:
+            if len(x.strip()) != 0:
+                calories += [int(x)]
+            else: 
+                self.data += [self.Sum(calories)]
+                calories = []
+
+        self.data += [self.Sum(calories)]
+        
+    def GetMaxCalories(self):
+        self.data.sort(reverse = True)
+        return self.data[0]
+
+    def GetTopThreeCalories(self):
+       self.data.sort(reverse = True)
+       return self.Sum(self.data[:3])
+       
+      
+
+
